@@ -44,8 +44,18 @@ public class Main {
 
     public static void printData(ArrayList<Task> tasksData) {
         for (Task t : tasksData) {
-            System.out.println(t);
+            System.out.println(t); //Method call from System package out object and println method
         }
+    }
+
+    public static void printDataWithStreams(ArrayList<Task> tasksData) {
+        System.out.println("\n Print tasks using streams");
+        tasksData.stream()// Converts tasksData to Stream
+                .forEach(System.out::println);//Terminal operation
+        // System.out::println means that we are passing the reference to the method of the out object within the System package.
+        //This is because the programmer is not calling the println method but we are simply asking the streams to call that method themselves behind the scene.
+        //This is due to the fact that Streams does the processing behind the scene, we simply tell them what we want them to do and pass them the resources.
+        // System.out::println is considered as the consumer since it is taken in by the streams and applied to the data within the stream.
     }
 
     public static void printDeadlines(ArrayList<Task> tasksData) {
