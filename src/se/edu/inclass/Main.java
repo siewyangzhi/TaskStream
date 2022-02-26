@@ -6,6 +6,8 @@ import se.edu.inclass.task.Task;
 import se.edu.inclass.task.TaskNameComparator;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -66,5 +68,12 @@ public class Main {
                 System.out.println(t);
             }
         }
+    }
+
+    public static void printDeadlinesWithStreams(ArrayList<Task> tasksData) {
+        System.out.println("\n Printing deadlines using stream");
+        tasksData.stream()
+                .filter((t) -> t instanceof Deadline)
+                .forEach(System.out::println);
     }
 }
